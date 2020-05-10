@@ -56,6 +56,9 @@ public class dataLoader {
             case "Avg With Strike Rate" :
                 comparator = Comparator.comparing(ipl -> ipl.sr+ipl.avg);
                 break;
+            case "Runs With Avg" :
+                comparator = Comparator.comparing(ipl -> ipl.runs+ipl.avg);
+                break;
             default:
                 System.out.println("Invalid Choice...");
                 break;

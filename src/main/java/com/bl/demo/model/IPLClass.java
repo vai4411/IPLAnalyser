@@ -21,4 +21,7 @@ public class IPLClass {
 
     @CsvBindByName(column = "6s", required = true)
     public int six;
+
+    @CsvBindByName(column = "Runs", required = true)
+    public int run;
 }

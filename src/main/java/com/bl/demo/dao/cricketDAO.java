@@ -9,6 +9,7 @@ public float sr;
 public int four;
 public int six;
 public int mat;
+public int runs;
 
 public cricketDAO(IPLClass iplClass) {
     player = iplClass.player;
@@ -17,5 +18,6 @@ public cricketDAO(IPLClass iplClass) {
     four = iplClass.four;
     six = iplClass.six;
     mat = iplClass.mat;
+    runs = iplClass.run;
 }
 }

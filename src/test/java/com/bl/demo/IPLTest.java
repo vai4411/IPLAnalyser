@@ -90,4 +90,13 @@ public class IPLTest {
         IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
         Assert.assertEquals("Bhuvneshwar Kumar",iplClass[list.size()-1].player);
     }
+
+    @Test
+    public void givenData_SortPlayerRunsWithAvgWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString(list,"Runs With Avg");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("David Warner",iplClass[0].player);
+    }
 }
