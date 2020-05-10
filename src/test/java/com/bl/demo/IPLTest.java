@@ -155,4 +155,31 @@ public class IPLTest {
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
         Assert.assertEquals("Ben Cutting", iplMostWkts[0].player);
     }
+
+    @Test
+    public void givenData_SortPlayerStrikeRateWith4WAnd5WWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"SR With Wikets");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Krishnappa Gowtham", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayer4WicketsWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"4W");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Imran Tahir", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayer6WicketsWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"5W");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Alzarri Joseph", iplMostWkts[0].player);
+    }
 }

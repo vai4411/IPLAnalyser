@@ -4,10 +4,10 @@ import com.opencsv.bean.CsvBindByName;
 
 public class IPLMostRuns {
 
-    @CsvBindByName(column = "PLAYER")
+    @CsvBindByName(column = "PLAYER", required = true)
     public String player;
 
-    @CsvBindByName(column = "Mat")
+    @CsvBindByName(column = "Mat" , required = true)
     public int mat;
 
     @CsvBindByName(column = "Avg", required = true)

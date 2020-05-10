@@ -12,21 +12,25 @@ public int six;
 public int mat;
 public int runs;
 public float eco;
+public int fiveWickets;
+public int fourWickets;
 
-public cricketDAO(IPLMostRuns iplMostRuns) {
-    player = iplMostRuns.player;
-    avg = iplMostRuns.avg;
-    sr = iplMostRuns.sr;
-    four = iplMostRuns.four;
-    six = iplMostRuns.six;
-    mat = iplMostRuns.mat;
-    runs = iplMostRuns.run;
-}
+    public cricketDAO(IPLMostRuns iplMostRuns) {
+        player = iplMostRuns.player;
+        avg = iplMostRuns.avg;
+        sr = iplMostRuns.sr;
+        four = iplMostRuns.four;
+        six = iplMostRuns.six;
+        mat = iplMostRuns.mat;
+        runs = iplMostRuns.run;
+    }
 
     public cricketDAO(IPLMostWkts iplMostWkts) {
         player = iplMostWkts.player;
         avg = iplMostWkts.avg;
         sr = iplMostWkts.sr;
         eco = iplMostWkts.eco;
+        fiveWickets = iplMostWkts.fiveWickets;
+        fourWickets = iplMostWkts.fourWickets;
     }
 }

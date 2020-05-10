@@ -72,6 +72,15 @@ public class dataLoader {
             case "Eco" :
                 comparator = Comparator.comparing(ipl -> ipl.eco);
                 break;
+            case "SR With Wikets" :
+                comparator = Comparator.comparing(ipl -> ipl.sr+ipl.four+ipl.fiveWickets);
+                break;
+            case "4W" :
+                comparator = Comparator.comparing(ipl -> ipl.fourWickets);
+                break;
+            case "5W" :
+                comparator = Comparator.comparing(ipl -> ipl.fiveWickets);
+                break;
             default:
                 System.out.println("Invalid Choice...");
                 break;
