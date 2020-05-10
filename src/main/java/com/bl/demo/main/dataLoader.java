@@ -41,6 +41,18 @@ public class dataLoader {
             case "SR" :
                 comparator = Comparator.comparing(ipl -> ipl.sr);
                 break;
+            case "Boundary" :
+                comparator = Comparator.comparing(ipl -> ipl.four+ipl.six);
+                break;
+            case "4s" :
+                comparator = Comparator.comparing(ipl -> ipl.four);
+                break;
+            case "6s" :
+                comparator = Comparator.comparing(ipl -> ipl.six);
+                break;
+            default:
+                System.out.println("Invalid Choice...");
+                break;
         }
         sortData.dataSort(comparator, list);
         String sortedString = new Gson().toJson(list);

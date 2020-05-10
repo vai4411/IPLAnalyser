@@ -35,4 +35,31 @@ public class IPLTest {
         IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
         Assert.assertEquals("Ishant Sharma",iplClass[0].player);
     }
+
+    @Test
+    public void givenData_SortPlayerNumberOfBoundaryHittingWise_DisplayPlayer() {
+        dataLoader loader = new dataLoader();
+        List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"Boundary");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("Andre Russell",iplClass[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerNumberOfFourHittingWise_DisplayPlayer() {
+        dataLoader loader = new dataLoader();
+        List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"4s");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("Shikhar Dhawan",iplClass[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerNumberOfSixHittingWise_DisplayPlayer() {
+        dataLoader loader = new dataLoader();
+        List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"6s");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("Andre Russell",iplClass[0].player);
+    }
 }
