@@ -94,7 +94,7 @@ public class IPLTest {
     }
 
     @Test
-    public void givenData_SortPlayerRunsWithAvgWise_DisplayBottomPlayer() {
+    public void givenData_SortPlayerRunsWithAvgWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
         ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Runs With Avg");
@@ -103,7 +103,7 @@ public class IPLTest {
     }
 
     @Test
-    public void givenData_SortPlayerRunsWise_DisplayBottomPlayer() {
+    public void givenData_SortPlayerRunsWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
         ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Runs");
@@ -127,5 +127,14 @@ public class IPLTest {
         String sortedList = dataLoader.sortedString(list,"Avg");
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
         Assert.assertEquals("Liam Livingstone", iplMostWkts[list.size()-1].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBestStrikeRateWise_DisplayTopPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"SR");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Liam Livingstone", iplMostWkts[0].player);
     }
 }
