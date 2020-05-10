@@ -53,6 +53,9 @@ public class dataLoader {
             case "Avg With Boundary" :
                 comparator = Comparator.comparing(ipl -> (ipl.six+ipl.four)/ipl.mat);
                 break;
+            case "Avg With Strike Rate" :
+                comparator = Comparator.comparing(ipl -> ipl.sr+ipl.avg);
+                break;
             default:
                 System.out.println("Invalid Choice...");
                 break;
