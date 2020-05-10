@@ -1,3 +1,7 @@
+package com.bl.demo.dao;
+
+import com.bl.demo.model.IPLClass;
+
 public class cricketDAO {
 public String player;
 public float avg;

@@ -1,3 +1,5 @@
+package com.bl.demo.model;
+
 import com.opencsv.bean.CsvBindByName;
 
 public class IPLClass {
