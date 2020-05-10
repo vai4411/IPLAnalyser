@@ -184,11 +184,20 @@ public class IPLTest {
     }
 
     @Test
-    public void givenData_SortPlayerStrikeRateAndAvgWise_DisplayTopPlayer() {
+    public void givenData_SortPlayerStrikeRateWithAvgWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
         ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
         String sortedList = dataLoader.sortedString(list,"Avg With Strike Rate");
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
         Assert.assertEquals("Krishnappa Gowtham", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerMaximumWicketsWithAvgWise_DisplayTopPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"Wickets With Avg");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Imran Tahir", iplMostWkts[0].player);
     }
 }

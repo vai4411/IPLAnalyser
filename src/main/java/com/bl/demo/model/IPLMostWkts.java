@@ -21,4 +21,10 @@ public class IPLMostWkts {
 
     @CsvBindByName(column = "5w", required = true)
     public int fiveWickets;
+
+    @CsvBindByName(column = "Wkts", required = true)
+    public int wkts;
+
+    @CsvBindByName(column = "Mat", required = true)
+    public int mat;
 }

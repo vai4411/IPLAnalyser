@@ -14,6 +14,7 @@ public int runs;
 public float eco;
 public int fiveWickets;
 public int fourWickets;
+public int wkts;
 
     public cricketDAO(IPLMostRuns iplMostRuns) {
         player = iplMostRuns.player;
@@ -32,5 +33,7 @@ public int fourWickets;
         eco = iplMostWkts.eco;
         fiveWickets = iplMostWkts.fiveWickets;
         fourWickets = iplMostWkts.fourWickets;
+        wkts = iplMostWkts.wkts;
+        mat = iplMostWkts.mat;
     }
 }

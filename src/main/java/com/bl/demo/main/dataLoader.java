@@ -81,6 +81,9 @@ public class dataLoader {
             case "5W" :
                 comparator = Comparator.comparing(ipl -> ipl.fiveWickets);
                 break;
+            case "Wickets With Avg" :
+                comparator = Comparator.comparing(ipl -> ipl.wkts);
+                break;
             default:
                 System.out.println("Invalid Choice...");
                 break;
