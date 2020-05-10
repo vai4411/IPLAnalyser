@@ -69,6 +69,9 @@ public class dataLoader {
             case "Runs" :
                 comparator = Comparator.comparing(ipl -> ipl.runs);
                 break;
+            case "Eco" :
+                comparator = Comparator.comparing(ipl -> ipl.eco);
+                break;
             default:
                 System.out.println("Invalid Choice...");
                 break;

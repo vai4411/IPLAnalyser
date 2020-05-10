@@ -11,6 +11,7 @@ public int four;
 public int six;
 public int mat;
 public int runs;
+public float eco;
 
 public cricketDAO(IPLMostRuns iplMostRuns) {
     player = iplMostRuns.player;
@@ -26,6 +27,6 @@ public cricketDAO(IPLMostRuns iplMostRuns) {
         player = iplMostWkts.player;
         avg = iplMostWkts.avg;
         sr = iplMostWkts.sr;
-        runs = iplMostWkts.runs;
+        eco = iplMostWkts.eco;
     }
 }

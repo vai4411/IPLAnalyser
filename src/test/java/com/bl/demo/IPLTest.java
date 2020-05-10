@@ -135,6 +135,24 @@ public class IPLTest {
         ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
         String sortedList = dataLoader.sortedString(list,"SR");
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
-        Assert.assertEquals("Liam Livingstone", iplMostWkts[0].player);
+        Assert.assertEquals("Krishnappa Gowtham", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBestEconomyWise_DisplayTopPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"Eco");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Shivam Dube", iplMostWkts[list.size()-1].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBestEconomyWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"Eco");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Ben Cutting", iplMostWkts[0].player);
     }
 }

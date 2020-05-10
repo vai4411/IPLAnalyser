@@ -7,8 +7,8 @@ public class IPLMostWkts {
     @CsvBindByName(column = "PLAYER")
     public String player;
 
-    @CsvBindByName(column = "Runs")
-    public int runs;
+    @CsvBindByName(column = "Econ")
+    public float eco;
 
     @CsvBindByName(column = "Avg", required = true)
     public float avg;
