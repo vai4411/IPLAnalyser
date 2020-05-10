@@ -11,7 +11,7 @@ public class IPLMostWkts {
     public float eco;
 
     @CsvBindByName(column = "Avg", required = true)
-    public float avg;
+    public float bowlAvg;
 
     @CsvBindByName(column = "SR", required = true)
     public float sr;

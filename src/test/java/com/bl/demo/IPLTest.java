@@ -1,5 +1,6 @@
 package com.bl.demo;
 
+import com.bl.demo.dao.cricketDAO;
 import com.bl.demo.main.dataLoader;
 import com.bl.demo.model.IPLMostRuns;
 import com.bl.demo.model.IPLMostWkts;
@@ -7,6 +8,7 @@ import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class IPLTest {
@@ -117,7 +119,7 @@ public class IPLTest {
         ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
         String sortedList = dataLoader.sortedString(list,"Avg");
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
-        Assert.assertEquals("Krishnappa Gowtham", iplMostWkts[0].player);
+        Assert.assertEquals("Imran Tahir", iplMostWkts[0].player);
     }
 
     @Test
@@ -199,5 +201,23 @@ public class IPLTest {
         String sortedList = dataLoader.sortedString(list,"Wickets With Avg");
         IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
         Assert.assertEquals("Imran Tahir", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBattingAvgWithBowlingAvgWise_DisplayTopPlayer() throws IOException {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.getList();
+        String str = dataLoader.sortedString(list,"Batting And Bowling Avg");
+        cricketDAO[] cricket = new Gson().fromJson(str,cricketDAO[].class);
+        Assert.assertEquals("Krishnappa Gowtham", cricket[0].player);
+    }
+
+    @Test
+    public void givenData_SortBestAllRounderWise_DisplayTopPlayer() throws IOException {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.getList();
+        String str = dataLoader.sortedString(list,"Best AllRounder");
+        cricketDAO[] cricket = new Gson().fromJson(str,cricketDAO[].class);
+        Assert.assertEquals("Andre Russell", cricket[0].player);
     }
 }

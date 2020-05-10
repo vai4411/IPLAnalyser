@@ -5,7 +5,8 @@ import com.bl.demo.model.IPLMostWkts;
 
 public class cricketDAO {
 public String player;
-public float avg;
+public float runAvg;
+public float bowlAvg;
 public float sr;
 public int four;
 public int six;
@@ -18,7 +19,7 @@ public int wkts;
 
     public cricketDAO(IPLMostRuns iplMostRuns) {
         player = iplMostRuns.player;
-        avg = iplMostRuns.avg;
+        runAvg = iplMostRuns.runAvg;
         sr = iplMostRuns.sr;
         four = iplMostRuns.four;
         six = iplMostRuns.six;
@@ -28,7 +29,24 @@ public int wkts;
 
     public cricketDAO(IPLMostWkts iplMostWkts) {
         player = iplMostWkts.player;
-        avg = iplMostWkts.avg;
+        bowlAvg = iplMostWkts.bowlAvg;
+        sr = iplMostWkts.sr;
+        eco = iplMostWkts.eco;
+        fiveWickets = iplMostWkts.fiveWickets;
+        fourWickets = iplMostWkts.fourWickets;
+        wkts = iplMostWkts.wkts;
+        mat = iplMostWkts.mat;
+    }
+    public cricketDAO(cricketDAO iplMostWkts, cricketDAO iplMostRuns) {
+        player = iplMostRuns.player;
+        runs = iplMostRuns.runs;
+        runAvg = iplMostRuns.runAvg;
+        sr = iplMostRuns.sr;
+        four = iplMostRuns.four;
+        six = iplMostRuns.six;
+        mat = iplMostRuns.mat;
+        player = iplMostWkts.player;
+        bowlAvg = iplMostWkts.bowlAvg;
         sr = iplMostWkts.sr;
         eco = iplMostWkts.eco;
         fiveWickets = iplMostWkts.fiveWickets;

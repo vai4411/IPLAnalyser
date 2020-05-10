@@ -11,7 +11,7 @@ public class IPLMostRuns {
     public int mat;
 
     @CsvBindByName(column = "Avg", required = true)
-    public float avg;
+    public float runAvg;
 
     @CsvBindByName(column = "SR", required = true)
     public float sr;
