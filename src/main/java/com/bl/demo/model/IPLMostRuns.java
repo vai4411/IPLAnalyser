@@ -2,7 +2,7 @@ package com.bl.demo.model;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class IPLClass {
+public class IPLMostRuns {
 
     @CsvBindByName(column = "PLAYER")
     public String player;

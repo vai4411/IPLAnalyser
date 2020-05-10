@@ -3,7 +3,8 @@ package com.bl.demo.main;
 import censusanalyser.opencsvbuilder.CSVBuilderFactory;
 import censusanalyser.opencsvbuilder.ICSVBuilder;
 import com.bl.demo.dao.cricketDAO;
-import com.bl.demo.model.IPLClass;
+import com.bl.demo.model.IPLMostRuns;
+import com.bl.demo.model.IPLMostWkts;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -18,14 +19,20 @@ import java.util.stream.StreamSupport;
 public class dataLoader {
     static Comparator<cricketDAO> comparator = null;
 
-    public static <T> ArrayList loadData(String filePath, Class className) {
+    public static <T> ArrayList loadData(String filePath, Class className, String fileName) {
         try(Reader reader = Files.newBufferedReader(Paths.get(filePath));){
             ArrayList<Object> arr = new ArrayList<>();
             ICSVBuilder builder = CSVBuilderFactory.getBuilder();
             Iterator<T> censusCSVIterator = builder.getCSVFileIterator(reader,className);
             Iterable<T> censusIterable = ()-> censusCSVIterator;
-            StreamSupport.stream(censusIterable.spliterator(),false)
-                    .forEach(csvCensus -> arr.add(new cricketDAO((IPLClass) csvCensus)));
+            if (fileName == "IPLMostRuns") {
+                StreamSupport.stream(censusIterable.spliterator(), false)
+                        .forEach(csvCensus -> arr.add(new cricketDAO((IPLMostRuns) csvCensus)));
+            }
+            else {
+                StreamSupport.stream(censusIterable.spliterator(), false)
+                        .forEach(csvCensus -> arr.add(new cricketDAO((IPLMostWkts) csvCensus)));
+            }
             return arr;
         } catch (IOException e) {
             e.printStackTrace();
@@ -58,6 +65,9 @@ public class dataLoader {
                 break;
             case "Runs With Avg" :
                 comparator = Comparator.comparing(ipl -> ipl.runs+ipl.avg);
+                break;
+            case "Runs" :
+                comparator = Comparator.comparing(ipl -> ipl.runs);
                 break;
             default:
                 System.out.println("Invalid Choice...");

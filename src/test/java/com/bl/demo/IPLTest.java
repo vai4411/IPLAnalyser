@@ -1,102 +1,131 @@
 package com.bl.demo;
 
 import com.bl.demo.main.dataLoader;
-import com.bl.demo.model.IPLClass;
+import com.bl.demo.model.IPLMostRuns;
+import com.bl.demo.model.IPLMostWkts;
 import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class IPLTest {
+
+    private final String IPL_MOST_RUNS = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
+    private final String IPL_MOST_WKETS = "./src/test/resources/IPL2019FactsheetMostWkts.csv";
 
     @Test
     public void givenIPLBatsmanCSVFile_ReturnsCorrectRecords() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         Assert.assertEquals(100,list.size());
     }
 
     @Test
     public void givenData_SortPlayerAvgWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Avg");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("MS Dhoni",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("MS Dhoni", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerStrikeRateWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"SR");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Ishant Sharma",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Ishant Sharma", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerNumberOfBoundaryHittingWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Boundary");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Andre Russell",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Andre Russell", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerNumberOfFourHittingWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"4s");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Shikhar Dhawan",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Shikhar Dhawan", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerNumberOfSixHittingWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"6s");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Andre Russell",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Andre Russell", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerAvgWithBoundaryWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Avg With Boundary");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("David Warner",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("David Warner", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerAvgWithStrikeRateWise_DisplayTopPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Avg With Strike Rate");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Ishant Sharma",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Ishant Sharma", iplMostRuns[0].player);
     }
 
     @Test
     public void givenData_SortPlayerAvgWithStrikeRateWise_DisplayBottomPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Avg With Strike Rate");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("Bhuvneshwar Kumar",iplClass[list.size()-1].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("Bhuvneshwar Kumar", iplMostRuns[list.size()-1].player);
     }
 
     @Test
     public void givenData_SortPlayerRunsWithAvgWise_DisplayBottomPlayer() {
         dataLoader loader = new dataLoader();
-        ArrayList list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
         String sortedList = dataLoader.sortedString(list,"Runs With Avg");
-        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
-        Assert.assertEquals("David Warner",iplClass[0].player);
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("David Warner", iplMostRuns[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerRunsWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_RUNS, IPLMostRuns.class,"IPLMostRuns");
+        String sortedList = dataLoader.sortedString(list,"Runs");
+        IPLMostRuns[] iplMostRuns =new Gson().fromJson(sortedList, IPLMostRuns[].class);
+        Assert.assertEquals("David Warner", iplMostRuns[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBestBowlingAvgWise_DisplayBottomPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"Avg");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Krishnappa Gowtham", iplMostWkts[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerBestBowlingAvgWise_DisplayTopPlayer() {
+        dataLoader loader = new dataLoader();
+        ArrayList list = loader.loadData(IPL_MOST_WKETS, IPLMostWkts.class,"IPLMostWkts");
+        String sortedList = dataLoader.sortedString(list,"Avg");
+        IPLMostWkts[] iplMostWkts =new Gson().fromJson(sortedList, IPLMostWkts[].class);
+        Assert.assertEquals("Liam Livingstone", iplMostWkts[list.size()-1].player);
     }
 }
