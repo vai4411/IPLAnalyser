@@ -16,6 +16,8 @@ import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 public class dataLoader {
+    static Comparator<cricketDAO> comparator = null;
+
     public static <T> ArrayList loadData(String filePath, Class className) {
         try(Reader reader = Files.newBufferedReader(Paths.get(filePath));){
             ArrayList<Object> arr = new ArrayList<>();
@@ -31,9 +33,16 @@ public class dataLoader {
         return null;
     }
 
-    public static String sortedString(ArrayList list) {
-        Comparator<cricketDAO> comparator = Comparator.comparing(ipl -> ipl.avg);
-        sortData.dataSort(comparator,list);
+    public static String sortedString(ArrayList list, String parameter) {
+        switch (parameter) {
+            case "Avg" :
+                comparator = Comparator.comparing(ipl -> ipl.avg);
+                break;
+            case "SR" :
+                comparator = Comparator.comparing(ipl -> ipl.sr);
+                break;
+        }
+        sortData.dataSort(comparator, list);
         String sortedString = new Gson().toJson(list);
         return sortedString;
     }

@@ -22,8 +22,17 @@ public class IPLTest {
     public void givenData_SortPlayerAvgWise_DisplayPlayer() {
         dataLoader loader = new dataLoader();
         List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
-        String sortedList = dataLoader.sortedString((ArrayList) list);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"Avg");
         IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
         Assert.assertEquals("MS Dhoni",iplClass[0].player);
+    }
+
+    @Test
+    public void givenData_SortPlayerStrikeRateWise_DisplayPlayer() {
+        dataLoader loader = new dataLoader();
+        List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"SR");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("Ishant Sharma",iplClass[0].player);
     }
 }
