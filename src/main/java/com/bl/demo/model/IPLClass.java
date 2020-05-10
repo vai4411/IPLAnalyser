@@ -7,6 +7,9 @@ public class IPLClass {
     @CsvBindByName(column = "PLAYER")
     public String player;
 
+    @CsvBindByName(column = "Mat")
+    public int mat;
+
     @CsvBindByName(column = "Avg", required = true)
     public float avg;
 

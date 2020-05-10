@@ -62,4 +62,13 @@ public class IPLTest {
         IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
         Assert.assertEquals("Andre Russell",iplClass[0].player);
     }
+
+    @Test
+    public void givenData_SortPlayerAvgWithBoundaryWise_DisplayPlayer() {
+        dataLoader loader = new dataLoader();
+        List list = loader.loadData("./src/test/resources/IPL2019FactsheetMostRuns.csv", IPLClass.class);
+        String sortedList = dataLoader.sortedString((ArrayList) list,"Avg With Boundary");
+        IPLClass[] iplClass =new Gson().fromJson(sortedList,IPLClass[].class);
+        Assert.assertEquals("David Warner",iplClass[0].player);
+    }
 }

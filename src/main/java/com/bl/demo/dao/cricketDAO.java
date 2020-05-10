@@ -8,6 +8,7 @@ public float avg;
 public float sr;
 public int four;
 public int six;
+public int mat;
 
 public cricketDAO(IPLClass iplClass) {
     player = iplClass.player;
@@ -15,5 +16,6 @@ public cricketDAO(IPLClass iplClass) {
     sr = iplClass.sr;
     four = iplClass.four;
     six = iplClass.six;
+    mat = iplClass.mat;
 }
 }
